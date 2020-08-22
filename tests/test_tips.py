@@ -40,11 +40,9 @@ def pb_tips(mockget, scope="module"):
     mockget.return_value = Mock(raise_for_status=lambda: None,
                                 json=lambda: tips_payload,
                                 status_code=200)
-    return PyBitesTips()
-
-
-def test_number_of_tips(pb_tips):
+    pb_tips = PyBitesTips()
     assert len(pb_tips.tips) == 3
+    return pb_tips
 
 
 def test_tip_output(pb_tips):
