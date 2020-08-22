@@ -24,7 +24,8 @@ Links:
 
 class PyBitesTips:
 
-    def __init__(self):
+    def __init__(self, use_pager=False):
+        self.use_pager = use_pager
         self.tips = self._get_tips()
 
     def _get_tips(self):
@@ -45,15 +46,16 @@ class PyBitesTips:
             print("No hits, try another search term")
             return
         elif hits > 1:
-            # if multiple tips, explain paging interface
+            # if multiple tips and pager, explain interface
             print(f"{hits} tips found")
-            choice = input(
-                ("\nPress any key to start paging them, "
-                 f"then press '{EXIT}' to go to the next one ... "
-                 f"or hit '{CANCEL}' bail out: ")
-            )
-            if choice == CANCEL:
-                return
+            if self.use_pager:
+                choice = input(
+                    ("\nPress any key to start paging them, "
+                     f"then press '{EXIT}' to go to the next one ... "
+                     f"or hit '{CANCEL}' bail out: ")
+                )
+                if choice == CANCEL:
+                    return
         self.print_tips(tips)
 
     def _generate_tip_output(self, tip):
@@ -70,7 +72,10 @@ class PyBitesTips:
     def print_tips(self, tips):
         for tip in tips:
             tip_fmt = self._generate_tip_output(tip)
-            pydoc.pager(tip_fmt)
+            if self.use_pager:
+                pydoc.pager(tip_fmt)
+            else:
+                print(tip_fmt)
 
     def __call__(self):
         while True:
