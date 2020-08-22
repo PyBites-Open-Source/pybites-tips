@@ -1,3 +1,5 @@
+*.swp
 dist
-**venv**
-**egg**
+build
+venv
+**egg-info
