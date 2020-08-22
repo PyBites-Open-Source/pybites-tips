@@ -4,7 +4,7 @@ A wrapper to read [PyBites Python tips](https://codechalleng.es/tips) from the c
 
 ## Installation
 
-You can install the PyBites Tips CLI from [PyPI](https://pypi.org/project/pybites-tips/):
+You can install _PyBites Tips CLI_ from [PyPI](https://pypi.org/project/pybites-tips/):
 
     pip install pybites-tips
 
@@ -12,7 +12,7 @@ This tool uses Python 3.x
 
 ## Usage
 
-PyBites Tips CLI is a command line application. There are two modes to run it:
+PyBites Tips CLI is a command line application. There are two ways to run it:
 
 1. Interactive mode:
 
@@ -37,13 +37,21 @@ PyBites Tips CLI is a command line application. There are two modes to run it:
 		...
 		...
 
+## Paging
+
 If you want to _page_ through the results use the `-p` flag:
 
-	$ pytip -s itertools
+	$ pytip -s itertools -p
 	7 tips found
 
 	Press any key to start paging them, then press 'q' to go to the next one ... or hit 'c' bail out:
 	...
-	<< results page paged (you see them one by one in terminal) >>
+	<< resulting tips are paged (you see them one by one in your terminal) >>
 
-Alternatively just pip `pytip`'s output to `more`: `pytip -s itertools|more`
+You can also just pipe `pytip`'s output to `more`:
+
+`pytip -s itertools|more`
+
+---
+
+Enjoy!

@@ -6,7 +6,7 @@ README = (HERE / "README.md").read_text()
 
 setup(
     name="pybites-tips",
-    version="1.0.0",
+    version="1.0.1",
     description="Read PyBites Python tips from the command line",
     long_description=README,
     long_description_content_type="text/markdown",
