@@ -10,7 +10,7 @@ setup(
     description="Read PyBites Python tips from the command line",
     long_description=README,
     long_description_content_type="text/markdown",
-    url="https://github.com/pybites/pybites-tips",
+    url="https://github.com/PyBites-Open-Source/pybites-tips",
     author="PyBites",
     author_email="support@pybit.es",
     license="MIT",
