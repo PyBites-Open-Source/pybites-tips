@@ -16,24 +16,34 @@ PyBites Tips CLI is a command line application. There are two modes to run it:
 
 1. Interactive mode:
 
-		>>> from src import PyBitesTips
-		>>> pb = PyBitesTips()
-		>>> pb()
+		$ pytip
 
-		Search tips (press 'q' to exit): wraps
-		2 tips found
+		Search tips (press 'q' to exit): functools
+		3 tips found
 
-		Press any key to start paging them, then press 'q' to go to the next one ... or hit 'c' bail out:
+		=== TIP 153 ===
+		Title: functools.partial
+		...
+		...
 
-		>> tips are paged to the console <<
-
-		Search tips (press 'q' to exit): q
-		Bye
-
-2. Search for tips with the `-s` flag:
+2. Search for tips from the command line using the `-s` flag:
 
 		$ pytip -s itertools
 		7 tips found
 
-		Press any key to start paging them, then press 'q' to go to the next one ... or hit 'c' bail out:
+		=== TIP 53 ===
+		Title: random.choice and itertools.product
+		Tip: #Python's random, range and itertools.product make it easy to simulate 5 dice rolls:
 		...
+		...
+
+If you want to _page_ through the results use the `-p` flag:
+
+	$ pytip -s itertools
+	7 tips found
+
+	Press any key to start paging them, then press 'q' to go to the next one ... or hit 'c' bail out:
+	...
+	<< results page paged (you see them one by one in terminal) >>
+
+Alternatively just pip `pytip`'s output to `more`: `pytip -s itertools|more`
