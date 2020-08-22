@@ -32,7 +32,7 @@ PyBites Tips CLI is a command line application. There are two modes to run it:
 
 2. Search for tips with the `-s` flag:
 
-	$ python src/main.py -s itertools
+	$ pytip -s itertools
 	7 tips found
 
 	Press any key to start paging them, then press 'q' to go to the next one ... or hit 'c' bail out:

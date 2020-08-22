@@ -24,7 +24,7 @@ setup(
     install_requires=["requests"],
     entry_points={
         "console_scripts": [
-            "pytip=src.tips:main",
+            "pytip=src.__main__:main",
         ]
     },
 )
