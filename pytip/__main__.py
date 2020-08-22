@@ -1,6 +1,6 @@
 import argparse
 
-from src.tips import PyBitesTips
+from pytip.tips import PyBitesTips
 
 
 def main():

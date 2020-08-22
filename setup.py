@@ -19,12 +19,12 @@ setup(
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.8",
     ],
-    packages=["src"],
+    packages=["pytip"],
     include_package_data=True,
     install_requires=["requests"],
     entry_points={
         "console_scripts": [
-            "pytip=src.__main__:main",
+            "pytip=pytip.__main__:main",
         ]
     },
 )

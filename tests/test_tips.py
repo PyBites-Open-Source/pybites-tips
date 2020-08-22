@@ -3,7 +3,7 @@ from unittest.mock import patch, Mock
 import pytest
 import requests
 
-from src import PyBitesTips
+from pytip import PyBitesTips
 
 tips_payload = [
     {'code': ">>> 'Python' ' is ' 'fun'\n'Python is fun'",
