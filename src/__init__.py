@@ -1,1 +1,1 @@
-from src.main import PyBitesTips
+from src.tips import PyBitesTips
