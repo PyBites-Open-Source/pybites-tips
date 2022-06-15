@@ -32,9 +32,11 @@ console = Console()
 
 class PyBitesTips:
 
-    def __init__(self, use_pager=False):
+    def __init__(self, use_pager=False, use_colors=False):
         self.use_pager = use_pager
+        self.use_colors = use_colors
         self.tips = self._get_tips()
+
 
     def _get_tips(self):
         resp = requests.get(TIPS_API_ENDPOINT)
@@ -72,13 +74,16 @@ class PyBitesTips:
             (tip.link, tip.image_link, tip.share_link)
             if link)
 
-        # Highlight the code with rich syntax highlighter
-        code_highlighted = Syntax(tip.code, "python")
+        if self.use_colors:
+            # Highlight the code with rich syntax highlighter
+            code_highlighted = Syntax(tip.code, "python")
 
-        # We don't want to use console.print as output, so we use capture()
-        with console.capture() as capture:
-            console.print(code_highlighted)
-        code_output = capture.get()
+            # We don't want to use console.print as output, so we use capture()
+            with console.capture() as capture:
+                console.print(code_highlighted)
+            code_output = capture.get()
+        else:
+            code_output = tip.code
 
         return TIP.format(id=tip.id,
                           title=tip.title,
