@@ -1,5 +1,17 @@
+# PyCharm Config Folder
+.idea/
+
+# Cache files and objects
+__pycache__/
+*.pyd
+*.pyc
 *.swp
-dist
-build
-venv
+
+# Virtual environments
+venv/
+env/
+
+# Setup Directories & Files
+dist/
+build/
 **egg-info

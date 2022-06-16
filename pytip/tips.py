@@ -1,7 +1,14 @@
 from collections import namedtuple
 import pydoc
-
+from rich.syntax import Syntax
+from rich.console import Console
+import os
 import requests
+from colorama import init
+
+# Windows shells (pycharm) act weird without this when printing colors...
+if os.name == 'nt':
+    init(autoreset=True)
 
 TIPS_API_ENDPOINT = "https://codechalleng.es/api/tips/"
 
@@ -21,12 +28,15 @@ Links:
 ---
 """
 
+console = Console()
 
 class PyBitesTips:
 
-    def __init__(self, use_pager=False):
+    def __init__(self, use_pager=False, use_colors=False):
         self.use_pager = use_pager
+        self.use_colors = use_colors
         self.tips = self._get_tips()
+
 
     def _get_tips(self):
         resp = requests.get(TIPS_API_ENDPOINT)
@@ -63,10 +73,22 @@ class PyBitesTips:
             link for link in
             (tip.link, tip.image_link, tip.share_link)
             if link)
+
+        if self.use_colors:
+            # Highlight the code with rich syntax highlighter
+            code_highlighted = Syntax(tip.code, "python")
+
+            # We don't want to use console.print as output, so we use capture()
+            with console.capture() as capture:
+                console.print(code_highlighted)
+            code_output = capture.get()
+        else:
+            code_output = tip.code
+
         return TIP.format(id=tip.id,
                           title=tip.title,
                           tip=tip.tip,
-                          code=tip.code,
+                          code=code_output,
                           links=links)
 
     def print_tips(self, tips):
